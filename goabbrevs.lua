@@ -2,7 +2,8 @@
 -- triggers by space or '='.
 -- see gen.go for abbreviations list.
 
-abbrevs = loadfile("abbrevs.lua")
+local config = import("micro/config")
+abbrevs = loadfile(os.getenv("HOME") .. "/.config/micro/plug/goabbrevs/abbrevs.lua")
 abbrevs()
 
 local str = ""
