@@ -1,7 +1,5 @@
 package main
 
-// myplugings is a set of experimental addons for micro editor for golang development.
-
 import (
 	"fmt"
 	"log"
