@@ -3,6 +3,8 @@
 -- see gen.go for abbreviations list.
 
 local config = import("micro/config")
+local util = import("micro/util")
+
 abbrevs = loadfile(os.getenv("HOME") .. "/.config/micro/plug/goabbrevs/abbrevs.lua")
 abbrevs()
 
@@ -19,7 +21,7 @@ end
 function onRune(bp, r)
 	local ft = bp.Buf:FileType()
 	if ft ~= "go" then
-		return true
+		return false
 	end
 
 	if r == " " or r == "=" then
@@ -28,8 +30,12 @@ function onRune(bp, r)
 			replace(bp, repl, back)
 		end
 		str = ""
-		return true	
+		return false
 	end
-	str = str .. r
-	return true
+	if util.IsWordChar(r) then
+		str = str .. r
+	else
+		str = ""
+	end
+	return false
 end
