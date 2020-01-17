@@ -32,7 +32,7 @@ function onRune(bp, r)
 		str = ""
 		return false
 	end
-	if util.IsWordChar(r) then
+	if util.IsWordChar(r) or r == ";" or r == "." then
 		str = str .. r
 	else
 		str = ""

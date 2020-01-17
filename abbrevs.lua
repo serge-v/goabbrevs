@@ -71,5 +71,8 @@ function expand(str)
 	if str == "wf" then
 		return "ioutil.WriteFile(fname,,0600)", -6
 	end
+	if str == "he" then
+		return "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0
+	end
 	return "", 0
 end

@@ -40,6 +40,8 @@ var abbrevs = []struct {
 	{"wa", "ioutil.WriteAll()", -1},
 	{"rf", "ioutil.ReadFile(fname)", -1},
 	{"wf", "ioutil.WriteFile(fname,,0600)", -6},
+
+	{"he", "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0},
 }
 
 func main() {
