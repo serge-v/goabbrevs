@@ -4,6 +4,7 @@
 
 local config = import("micro/config")
 local util = import("micro/util")
+local micro = import("micro")
 
 abbrevs = loadfile(os.getenv("HOME") .. "/.config/micro/plug/goabbrevs/abbrevs.lua")
 abbrevs()
@@ -17,7 +18,9 @@ function replace(bp, repl, back)
 	loc = bp.Cursor:Move(back, bp.Buf)
 	bp.Cursor:GotoLoc(loc)
 end
- 
+
+micro.Log("Start")
+
 function onRune(bp, r)
 	local ft = bp.Buf:FileType()
 	if ft ~= "go" then
@@ -30,6 +33,7 @@ function onRune(bp, r)
 			replace(bp, repl, back)
 		end
 		str = ""
+		micro.Log("str:", str, "r:", r)
 		return false
 	end
 	if util.IsWordChar(r) or r == ";" or r == "." then
@@ -37,5 +41,42 @@ function onRune(bp, r)
 	else
 		str = ""
 	end
+	micro.Log("str:", str, "r:", r)
+	return false
+end
+
+function onCursorUp(bp)
+	local ft = bp.Buf:FileType()
+	if ft ~= "go" then
+		return false
+	end
+	str = ""
+	return false
+end
+
+function onCursorDown(bp)
+	local ft = bp.Buf:FileType()
+	if ft ~= "go" then
+		return false
+	end
+	str = ""
+	return false
+end
+
+function onCursorLeft(bp)
+	local ft = bp.Buf:FileType()
+	if ft ~= "go" then
+		return false
+	end
+	str = ""
+	return false
+end
+
+function onCursorRight(bp)
+	local ft = bp.Buf:FileType()
+	if ft ~= "go" then
+		return false
+	end
+	str = ""
 	return false
 end

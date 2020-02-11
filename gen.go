@@ -35,7 +35,7 @@ var abbrevs = []struct {
 
 	{"fu", "func () {\n}\n", -7},
 
-	{"ss.", "strings", 1},
+	{"ss.", "strings.", 0},
 	{"ra", "ioutil.ReadAll()", -1},
 	{"wa", "ioutil.WriteAll()", -1},
 	{"rf", "ioutil.ReadFile(fname)", -1},
