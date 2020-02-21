@@ -57,7 +57,7 @@ function expand(str)
 		return "func () {\n}\n", -7
 	end
 	if str == "ss." then
-		return "strings", 1
+		return "strings.", 0
 	end
 	if str == "ra" then
 		return "ioutil.ReadAll()", -1

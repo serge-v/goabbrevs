@@ -45,38 +45,32 @@ function onRune(bp, r)
 	return false
 end
 
-function onCursorUp(bp)
+function reset(bp)
 	local ft = bp.Buf:FileType()
 	if ft ~= "go" then
 		return false
 	end
 	str = ""
 	return false
+end
+
+function onCursorUp(bp)
+	reset(bp)
 end
 
 function onCursorDown(bp)
-	local ft = bp.Buf:FileType()
-	if ft ~= "go" then
-		return false
-	end
-	str = ""
-	return false
+	reset(bp)
 end
 
 function onCursorLeft(bp)
-	local ft = bp.Buf:FileType()
-	if ft ~= "go" then
-		return false
-	end
-	str = ""
-	return false
+	reset(bp)
 end
 
+
 function onCursorRight(bp)
-	local ft = bp.Buf:FileType()
-	if ft ~= "go" then
-		return false
-	end
-	str = ""
-	return false
+	reset(bp)
+end
+
+function onBackspace(bp)
+	reset(bp)
 end
