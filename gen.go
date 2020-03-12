@@ -16,7 +16,7 @@ var abbrevs = []struct {
 
 	{"ife", "if err != nil {\n\t\n\t}\n", -4},
 	{"ie", "if err := ", 0},
-	{";e", ";err != nil {\t\n\t\t\n\t}", -3},
+	{";e", "err != nil {\t\n\t\t\n\t}", -3},
 
 	{"re", "return err", 0},
 	{"rn", "return nil", 0},

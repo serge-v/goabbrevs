@@ -32,8 +32,8 @@ function onRune(bp, r)
 		if repl ~= "" then
 			replace(bp, repl, back)
 		end
-		str = ""
 		micro.Log("str:", str, "r:", r)
+		str = ""
 		return false
 	end
 	if util.IsWordChar(r) or r == ";" or r == "." then
@@ -41,7 +41,7 @@ function onRune(bp, r)
 	else
 		str = ""
 	end
-	micro.Log("str:", str, "r:", r)
+	-- micro.Log("str:", str, "r:", r)
 	return false
 end
 

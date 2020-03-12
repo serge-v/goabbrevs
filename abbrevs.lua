@@ -15,7 +15,7 @@ function expand(str)
 		return "if err := ", 0
 	end
 	if str == ";e" then
-		return ";err != nil {\t\n\t\t\n\t}", -3
+		return "err != nil {\t\n\t\t\n\t}", -3
 	end
 	if str == "re" then
 		return "return err", 0
