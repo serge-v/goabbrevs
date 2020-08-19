@@ -23,8 +23,11 @@ function expand(str)
 	if str == "rn" then
 		return "return nil", 0
 	end
-	if str == "rw" then
-		return "return errors.Wrap(err, \"\")", -2
+	if str == "ew" then
+		return "errors.Wrap(err, \"\")", -2
+	end
+	if str == "tl" then
+		return "t.Log(\"\",)", -2
 	end
 	if str == "tlf" then
 		return "t.Logf(\"\",)", -3
@@ -35,8 +38,14 @@ function expand(str)
 	if str == "pp" then
 		return "println(\"=== \")", -2
 	end
+	if str == "pps" then
+		return "println(\"=== \", fmt.Sprintf(\"%\",))", -4
+	end
 	if str == "ff" then
 		return "fmt.Printf(\"\",)", -3
+	end
+	if str == "sp" then
+		return "fmt.Sprintf(\"\",)", -3
 	end
 	if str == "fe" then
 		return "fmt.Errorf(\"\",)", -3

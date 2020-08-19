@@ -20,12 +20,15 @@ var abbrevs = []struct {
 
 	{"re", "return err", 0},
 	{"rn", "return nil", 0},
-	{"rw", "return errors.Wrap(err, \"\")", -2},
+	{"ew", "errors.Wrap(err, \"\")", -2},
+	{"tl", "t.Log(\"\",)", -2},
 	{"tlf", "t.Logf(\"\",)", -3},
 	{"tf", "t.Fatal(err)", 0},
 
 	{"pp", "println(\"=== \")", -2},
+	{"pps", "println(\"=== \", fmt.Sprintf(\"%\",))", -4},
 	{"ff", "fmt.Printf(\"\",)", -3},
+	{"sp", "fmt.Sprintf(\"\",)", -3},
 	{"fe", "fmt.Errorf(\"\",)", -3},
 	{"fp", "fmt.Println()", -1},
 
