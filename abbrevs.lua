@@ -5,9 +5,6 @@ function expand(str)
 	if str == "aa" then
 		return "append(,)", -2
 	end
-	if str == "tt" then
-		return "t*testing.T", -1
-	end
 	if str == "ife" then
 		return "if err != nil {\n\t\n\t}\n", -4
 	end
@@ -26,6 +23,18 @@ function expand(str)
 	if str == "ew" then
 		return "errors.Wrap(err, \"\")", -2
 	end
+	if str == "pp" then
+		return "println(\"=== \")", -2
+	end
+	if str == "pps" then
+		return "println(\"=== \", fmt.Sprintf(\"%\",))", -4
+	end
+	if str == "fu" then
+		return "func () {\n}\n", -7
+	end
+	if str == "tt" then
+		return "func Test(t*testing.T)", -1
+	end
 	if str == "tl" then
 		return "t.Log(\"\",)", -2
 	end
@@ -35,14 +44,11 @@ function expand(str)
 	if str == "tf" then
 		return "t.Fatal(err)", 0
 	end
-	if str == "pp" then
-		return "println(\"=== \")", -2
-	end
-	if str == "pps" then
-		return "println(\"=== \", fmt.Sprintf(\"%\",))", -4
-	end
 	if str == "ff" then
 		return "fmt.Printf(\"\",)", -3
+	end
+	if str == "fff" then
+		return "fmt.Fprintf(w, \"\",)", -3
 	end
 	if str == "sp" then
 		return "fmt.Sprintf(\"\",)", -3
@@ -60,10 +66,7 @@ function expand(str)
 		return "log.Printf(\"\",)", -3
 	end
 	if str == "lf" then
-		return "log.Fatal()", -1
-	end
-	if str == "fu" then
-		return "func () {\n}\n", -7
+		return "log.Fatal(err)", -1
 	end
 	if str == "ss." then
 		return "strings.", 0
@@ -82,6 +85,12 @@ function expand(str)
 	end
 	if str == "he" then
 		return "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0
+	end
+	if str == "hw" then
+		return "w http.ResponseWriter", 0
+	end
+	if str == "hr" then
+		return "r*http.ResponseReader", 0
 	end
 	return "", 0
 end
