@@ -6,6 +6,10 @@ local config = import("micro/config")
 local util = import("micro/util")
 local micro = import("micro")
 
+function init()
+	config.AddRuntimeFile("goabbrevs", config.RTHelp, "help/goabbrevs.md")
+end
+
 abbrevs = loadfile(os.getenv("HOME") .. "/.config/micro/plug/goabbrevs/abbrevs.lua")
 abbrevs()
 
