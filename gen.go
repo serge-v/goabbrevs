@@ -19,19 +19,21 @@ var abbrevs = []struct {
 	{"go", "ie", "if err := ", 0},
 	{"go", ";e", "err != nil {\t\n\t\t\n\t}", -3},
 	{"go", "re", "return err", 0},
+	{"go", "rf", "return fmt.Errorf(\": %w\", err)", -11},
 	{"go", "rn", "return nil", 0},
 	{"go", "ew", "errors.Wrap(err, \"\")", -2},
 	{"go", "pp", "println(\"=== \")", -2},
 	{"go", "pps", "println(\"=== \", fmt.Sprintf(\"%\",))", -4},
 	{"go", "fu", "func () {\n}\n", -7},
 
-	{"testing", "tt", "func Test(t*testing.T)", -1},
+	{"testing", "tt", "func Test(t*testing.T)", -13},
 	{"testing", "tl", "t.Log(\"\",)", -2},
 	{"testing", "tlf", "t.Logf(\"\",)", -3},
 	{"testing", "tf", "t.Fatal(err)", 0},
 
 	{"fmt", "ff", "fmt.Printf(\"\",)", -3},
 	{"fmt", "fff", "fmt.Fprintf(w, \"\",)", -3},
+	{"fmt", "ffp", "fmt.Fprintln(w, )", -1},
 	{"fmt", "sp", "fmt.Sprintf(\"\",)", -3},
 	{"fmt", "fe", "fmt.Errorf(\"\",)", -3},
 	{"fmt", "fp", "fmt.Println()", -1},
@@ -43,13 +45,12 @@ var abbrevs = []struct {
 	{"strings", "ss.", "strings.", 0},
 
 	{"io", "ra", "ioutil.ReadAll()", -1},
-	{"io", "wa", "ioutil.WriteAll()", -1},
 	{"io", "rf", "ioutil.ReadFile(fname)", -1},
 	{"io", "wf", "ioutil.WriteFile(fname,,0600)", -6},
 
 	{"http", "he", "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0},
 	{"http", "hw", "w http.ResponseWriter", 0},
-	{"http", "hr", "r*http.ResponseReader", 0},
+	{"http", "hr", "r*http.Request", 0},
 }
 
 func main() {

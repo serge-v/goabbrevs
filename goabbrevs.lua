@@ -2,6 +2,8 @@
 -- triggers by space or '='.
 -- see gen.go for abbreviations list.
 
+VERSION = "2.0.0"
+
 local config = import("micro/config")
 local util = import("micro/util")
 local micro = import("micro")
