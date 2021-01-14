@@ -17,6 +17,9 @@ function expand(str)
 	if str == "re" then
 		return "return err", 0
 	end
+	if str == "rf" then
+		return "return fmt.Errorf(\": %w\", err)", -11
+	end
 	if str == "rn" then
 		return "return nil", 0
 	end
@@ -33,7 +36,7 @@ function expand(str)
 		return "func () {\n}\n", -7
 	end
 	if str == "tt" then
-		return "func Test(t*testing.T)", -1
+		return "func Test(t*testing.T)", -13
 	end
 	if str == "tl" then
 		return "t.Log(\"\",)", -2
@@ -49,6 +52,9 @@ function expand(str)
 	end
 	if str == "fff" then
 		return "fmt.Fprintf(w, \"\",)", -3
+	end
+	if str == "ffp" then
+		return "fmt.Fprintln(w, )", -1
 	end
 	if str == "sp" then
 		return "fmt.Sprintf(\"\",)", -3
@@ -74,9 +80,6 @@ function expand(str)
 	if str == "ra" then
 		return "ioutil.ReadAll()", -1
 	end
-	if str == "wa" then
-		return "ioutil.WriteAll()", -1
-	end
 	if str == "rf" then
 		return "ioutil.ReadFile(fname)", -1
 	end
@@ -90,7 +93,7 @@ function expand(str)
 		return "w http.ResponseWriter", 0
 	end
 	if str == "hr" then
-		return "r*http.ResponseReader", 0
+		return "r*http.Request", 0
 	end
 	return "", 0
 end
