@@ -77,14 +77,14 @@ function expand(str)
 	if str == "ss." then
 		return "strings.", 0
 	end
-	if str == "ra" then
-		return "ioutil.ReadAll()", -1
+	if str == "iora" then
+		return "io.ReadAll()", -1
 	end
-	if str == "rf" then
-		return "ioutil.ReadFile(fname)", -1
+	if str == "iorf" then
+		return "io.ReadFile(fname)", -1
 	end
-	if str == "wf" then
-		return "ioutil.WriteFile(fname,,0600)", -6
+	if str == "iowf" then
+		return "io.WriteFile(fname,,0600)", -6
 	end
 	if str == "he" then
 		return "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0
@@ -94,6 +94,9 @@ function expand(str)
 	end
 	if str == "hr" then
 		return "r*http.Request", 0
+	end
+	if str == "hg" then
+		return "\tresp, err := http.Get(\"url\")\n\tif err != nil {\n\t\treturn err\n\t}\n\tif resp.StatusCode != http.StatusOK {\n\t\treturn fmt.Errorf(\"status: %s\", resp.Status)\n\t}\n\n\tbuf, err := io.ReadAll(resp.Body)\n\tif err != nil {\n\t\treturn err\n\t}\n\t_ = buf\n\treturn nil\n", 0
 	end
 	return "", 0
 end
