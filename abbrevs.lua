@@ -98,5 +98,8 @@ function expand(str)
 	if str == "hg" then
 		return "\tresp, err := http.Get(\"url\")\n\tif err != nil {\n\t\treturn err\n\t}\n\tif resp.StatusCode != http.StatusOK {\n\t\treturn fmt.Errorf(\"status: %s\", resp.Status)\n\t}\n\n\tbuf, err := io.ReadAll(resp.Body)\n\tif err != nil {\n\t\treturn err\n\t}\n\t_ = buf\n\treturn nil\n", 0
 	end
+	if str == "qsel" then
+		return "SELECT *\nFROM\nWHERE\nGROUP BY\nORDER BY\nLIMIT 1000\n;\n", -1
+	end
 	return "", 0
 end

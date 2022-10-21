@@ -56,6 +56,8 @@ var abbrevs = []struct {
 	{"http", "hw", "w http.ResponseWriter", "", 0},
 	{"http", "hr", "r*http.Request", "", 0},
 	{"http", "hg", "", "http.Get() and error handling", 0},
+
+	{"sql", "qsel", "SELECT *\nFROM\nWHERE\nGROUP BY\nORDER BY\nLIMIT 1000\n;\n", "select *", -1},
 }
 
 func getSnippet(abbrev string) (string, error) {
@@ -139,7 +141,7 @@ func main() {
 	fmt.Fprintln(fh, "# kind    abbrev     replacement")
 	repl := strings.NewReplacer("\t", "", "\n", " ")
 	for _, a := range abbrevs {
-		if a.replacement == "" {
+		if a.description != "" {
 			a.replacement = a.description
 		}
 		fmt.Fprintf(fh, "%-10s %-10s %s\n", a.kind, a.what, repl.Replace(a.replacement))
