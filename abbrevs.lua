@@ -80,11 +80,17 @@ function expand(str)
 	if str == "iora" then
 		return "io.ReadAll()", -1
 	end
-	if str == "iorf" then
-		return "io.ReadFile(fname)", -1
+	if str == "osrf" then
+		return "os.ReadFile(fname)", -1
 	end
-	if str == "iowf" then
-		return "io.WriteFile(fname,,0600)", -6
+	if str == "oswf" then
+		return "os.WriteFile(fname,,0600)", -6
+	end
+	if str == "osc" then
+		return "os.Create()", -1
+	end
+	if str == "oso" then
+		return "os.Open()", -1
 	end
 	if str == "he" then
 		return "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", 0

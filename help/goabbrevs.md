@@ -28,8 +28,10 @@ log        lpf        log.Printf("",)
 log        lf         log.Fatal(err)
 strings    ss.        strings.
 io         iora       io.ReadAll()
-io         iorf       io.ReadFile(fname)
-io         iowf       io.WriteFile(fname,,0600)
+os         osrf       os.ReadFile(fname)
+os         oswf       os.WriteFile(fname,,0600)
+os         osc        os.Create()
+os         oso        os.Open()
 http       he         http.Error(w, err.Error(), http.StatusInternalServerError) return 
 http       hw         w http.ResponseWriter
 http       hr         r*http.Request

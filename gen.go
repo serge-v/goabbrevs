@@ -49,8 +49,11 @@ var abbrevs = []struct {
 	{"strings", "ss.", "strings.", "", 0},
 
 	{"io", "iora", "io.ReadAll()", "", -1},
-	{"io", "iorf", "io.ReadFile(fname)", "", -1},
-	{"io", "iowf", "io.WriteFile(fname,,0600)", "", -6},
+
+	{"os", "osrf", "os.ReadFile(fname)", "", -1},
+	{"os", "oswf", "os.WriteFile(fname,,0600)", "", -6},
+	{"os", "osc", "os.Create()", "", -1},
+	{"os", "oso", "os.Open()", "", -1},
 
 	{"http", "he", "http.Error(w, err.Error(), http.StatusInternalServerError)\nreturn\n", "", 0},
 	{"http", "hw", "w http.ResponseWriter", "", 0},
