@@ -58,6 +58,10 @@ var abbrevs = []struct {
 	{"http", "hg", "", "http.Get() and error handling", 0},
 
 	{"sql", "qsel", "SELECT *\nFROM\nWHERE\nGROUP BY\nORDER BY\nLIMIT 1000\n;\n", "select *", -1},
+
+	{"zap", "zs", "zap.String(\"\", )", "", -4},
+	{"zap", "zi", "zap.Int64(\"\", )", "", -4},
+	{"zap", "ze", "zap.Error(err)", "", 0},
 }
 
 func getSnippet(abbrev string) (string, error) {

@@ -101,5 +101,14 @@ function expand(str)
 	if str == "qsel" then
 		return "SELECT *\nFROM\nWHERE\nGROUP BY\nORDER BY\nLIMIT 1000\n;\n", -1
 	end
+	if str == "zs" then
+		return "zap.String(\"\", )", -4
+	end
+	if str == "zi" then
+		return "zap.Int64(\"\", )", -4
+	end
+	if str == "ze" then
+		return "zap.Error(err)", 0
+	end
 	return "", 0
 end
